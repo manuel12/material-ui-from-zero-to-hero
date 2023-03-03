@@ -1,13 +1,26 @@
-import React from "react";
-import { Grid } from "@mui/material";
+import React, { useState } from "react";
+import GridWrapper from "../../components/common/GridWrapper/GridWrapper";
+import UserTable from "../../components/UserTable/UserTable";
 
 export default Storage = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
-    <Grid
-      item
-      xs={8}
-    >
-      Storage
-    </Grid>
+    <GridWrapper>
+      This is the storage page.
+      <UserTable />
+    </GridWrapper>
   );
 };
